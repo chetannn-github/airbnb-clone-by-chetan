@@ -1,0 +1,19 @@
+<div id="nav">
+    <div id="logo">
+       <a href="/listings"><img src="/airbnb.svg" alt=""></a> 
+    </div>
+    <div id="navlinks">
+        <a href="/listings/new">New Listing</a>
+        <% if (currUser) { %>
+            <a href="/logout ">(<%=currUser.username%>) Logout</a>
+            <% } else {%>
+                <a href="/signup">Signup</a>
+                <a href="/login">Login</a>
+          <%  } %>
+         
+        
+        
+        
+        
+    </div>
+</div>

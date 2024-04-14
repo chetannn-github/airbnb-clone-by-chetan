@@ -1,0 +1,18 @@
+#error{
+    position: relative;
+    width:fit-content;
+    height: fit-content;
+    left: 50%;
+    transform: translate(-50%,0);
+    border: 1px solid rgb(228, 95, 95);
+    margin-top: 100px;
+    /* background: #000; */
+    padding: 20px;
+    border-radius: 12px;
+}
+
+#error p{
+    font-size: 1.6vw;
+    color: rgb(116, 24, 24);
+    /* background: #967171; */
+}

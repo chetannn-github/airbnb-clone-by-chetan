@@ -1,0 +1,108 @@
+#reviews{
+    width: 50%;
+    height:fit-content;
+    /* background: #dea6a6; */
+
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,0);
+    border-top: 1px solid rgba(0, 0, 0, 0.177);
+    margin-top: 40px;
+    padding-top: 20px;
+
+    padding-bottom: 30px;
+
+
+}
+
+
+#all-reviews {
+    height: fit-content;
+    width: 100%;
+    /* border: 1px solid black; */
+    border-radius: 10px;
+
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#all-reviews #review{
+    min-height: 150px;
+    width: 300px;
+    flex-shrink:0 ;
+    border: 1px solid rgba(0, 0, 0, 0.523);
+    border-radius: 10px;
+    position: relative;
+    padding: 10px ;
+    overflow: hidden;
+}
+
+
+#all-reviews #review h5{
+    font-weight: 400;
+    font-size: 20px;
+}
+
+#all-reviews #review p#comment{ 
+    font-weight: 100;
+    margin-top: 10px;
+    margin-bottom: 90px;
+    
+}
+
+#all-reviews #delete{
+
+    position: absolute;
+    bottom:10px;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: black;
+    color: white;
+    
+    
+}
+
+
+
+
+#reviews  h1#title{
+    text-align: center;
+    
+}
+
+#reviews #experience{
+    height: 110px;
+    padding: 10px;
+    width:100%;
+
+    border-radius: 10px;
+    position: relative;
+    margin-top: 15px;
+
+    
+}
+
+
+#reviews #ratings{
+    margin-top: 15px;
+    margin-left: 20px;
+    height: 20px;
+    
+}
+
+#reviews label{
+    margin-top: 20px;
+    
+
+}
+
+ button{
+    padding:10px 20px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
