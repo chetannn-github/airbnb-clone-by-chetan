@@ -71,7 +71,8 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-
+const wrapAsync = require("./utils/wrapAsync.js");
+const { index} = require("./controllers/listing.js");
 
 app.use((req,res,next) =>{ 
     res.locals.success= req.flash("success");
@@ -94,10 +95,7 @@ async function main(){
 }
 
 // ___________________routes__________________________
-app.get("/", (req,res) => {
-    res.send("server is working well!!!!")
-    console.log(`standard GET response`);
-});
+app.get("/", wrapAsync(index));
 
 app.use("/listings",listings);
 app.use("/listings/:id/reviews",reviews);
