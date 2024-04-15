@@ -23,7 +23,6 @@ const user = require("./routes/user.js")
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
-const MongoStore = require('connect-mongo');
 
 
 app.use(express.urlencoded({extended:true}));
