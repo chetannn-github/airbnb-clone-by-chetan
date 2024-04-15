@@ -55,7 +55,7 @@
 
 #flash{
     height: 60px;
-    width:500px;
+    width:30%;
    
     
     padding:20px ;
@@ -86,3 +86,11 @@
 }
 
 
+@media (max-width: 767px) {
+    
+    #flash{
+        width: 50%;
+    }
+    
+
+}

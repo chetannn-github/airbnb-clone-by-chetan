@@ -93,3 +93,24 @@
 
     
 }
+
+
+
+
+
+
+
+
+@media (max-width: 767px) {
+    #map-container{
+        width: 90vw;
+    }
+
+    #listing{
+
+        
+        width: 90%;
+    
+        
+    }
+    }
