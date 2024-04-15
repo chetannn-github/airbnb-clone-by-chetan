@@ -4,7 +4,7 @@
 
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
 
     background: #ffffff;
     padding: 10px 50px;
@@ -113,6 +113,10 @@
     
     #nav #logo {
         height: 65%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     
@@ -121,6 +125,7 @@
         display: flex;
         /* background: #5d5252; */
         gap: 20px;
+        font-size: 12px;
     }
     
     
