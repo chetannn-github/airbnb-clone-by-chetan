@@ -91,6 +91,38 @@
     #flash{
         width: 50%;
     }
+
+    #nav{
+        height: 10vh;
+        width: 100vw;
+    
+        
+    
+        background: #ffffff;
+        padding: 15px;
+        position:fixed;
+        z-index: 3;
+        top: 0;
+        /* border-radius: 12px; */
+        box-shadow: -1px 2px 20px 0px #0000003d;
+    
+        
+        
+    }
+    
+    
+    #nav #logo {
+        height: 65%;
+    }
+
+    
+    
+    #nav #navlinks{
+        display: flex;
+        /* background: #5d5252; */
+        gap: 20px;
+    }
+    
     
 
 }
