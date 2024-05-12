@@ -22,7 +22,9 @@ module.exports.destroy = async (req,res) =>{
 
     if(listing.reviews.length){
         // console.log("reviews delete hogyee!!!!!!");
-        await Review.deleteMany({_id:{$in:listing.reviews}});}
+        await Review.deleteMany({_id:{$in:listing.reviews}});
+    }
+    
     req.flash("success","Listing Deleted!!");
     res.redirect("/listings");
 }

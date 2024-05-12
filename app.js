@@ -1,19 +1,17 @@
 if(process.env.NODE_ENV != 'production'){
-require('dotenv').config();
+    require('dotenv').config();
 }
-
-
+ 
 const express = require("express");
 const app = express();
 const port = 8080;
-const methodOverride =require("method-override");
+const methodOverride = require("method-override");
 const path = require("path");
 const mongoose= require("mongoose");
+
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
-
-
 
 const ExpressError = require("./utils/ExpressErrorClass");
 const listings = require("./routes/listings");
@@ -23,7 +21,6 @@ const user = require("./routes/user.js")
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
-
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
@@ -61,7 +58,6 @@ const sessionOptions = {
     }
 };
 
-
 app.use(session(sessionOptions));
 app.use(flash());
 
@@ -72,7 +68,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 const wrapAsync = require("./utils/wrapAsync.js");
-const { index} = require("./controllers/listing.js");
+const { index } = require("./controllers/listing.js");
 
 app.use((req,res,next) =>{ 
     res.locals.success= req.flash("success");

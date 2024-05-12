@@ -17,8 +17,6 @@ if(!req.isAuthenticated()){
 }
 
 
-
-
 module.exports.saveRedirectUrl = (req,res,next) =>{
     if(req.session.redirectUrl){
         res.locals.redirectUrl = req.session.redirectUrl;
@@ -44,7 +42,6 @@ module.exports.isOwner  = wrapAsync(async(req,res,next) =>{
 
 module.exports.isReviewOwner  = wrapAsync(async(req,res,next) =>{
         let {reviewId,id} = req.params;
-        
         
         let review = await Review.findById(reviewId); 
         if(!(review.author.equals(res.locals.currUser._id))){
