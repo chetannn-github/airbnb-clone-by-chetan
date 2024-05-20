@@ -17,11 +17,14 @@ const MongoStore = require("connect-mongo");
 const ExpressError = require("./utils/ExpressErrorClass");
 const listings = require("./routes/listings");
 const reviews = require("./routes/reviews");
-const user = require("./routes/user.js");
+const user = require("./routes/users.js");
 
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
-const User = require("./models/user.js");
+const User = require("./models/users.js");
+
+const wrapAsync = require("./utils/wrapAsync.js");
+const { index } = require("./controllers/listings.js");
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
@@ -68,8 +71,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-const wrapAsync = require("./utils/wrapAsync.js");
-const { index } = require("./controllers/listing.js");
+
 
 app.use((req,res,next) =>{ 
     res.locals.success= req.flash("success");

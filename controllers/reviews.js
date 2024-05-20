@@ -1,5 +1,5 @@
-const Listing = require("../models/listing");
-const Review= require("../models/review.js");
+const Listing = require("../models/listings.js");
+const Review= require("../models/reviews.js");
 
 
 module.exports.destroyReview = async(req,res)=>{
