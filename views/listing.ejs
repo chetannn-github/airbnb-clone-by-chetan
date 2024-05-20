@@ -15,11 +15,11 @@
     <title><%= listing.title %></title>
 </head>
 <body>
-    <%- include("includes/header.ejs") %>
-    <%- include("includes/flash.ejs") %>
+    <%- include("./includes/header.ejs") %>
+    <%- include("./includes/flash.ejs") %>
 
     <div id="listing">
-        <h1 id="title"><%= listing.title %>   </h1>
+        <h1 id="title"><%= listing.title %> </h1>
         <img src="<%=listing.image.url%>" alt="">
         <h5 id="id">Owned By:-( <%= listing.owner.username %> )</h1> 
         
@@ -42,12 +42,12 @@
 
     <div id="reviews">
 
-            <h1 id="title">Reviews(<%= listing.reviews.length %>)  Avg:<%= listing.avgRating %></h1>
+        <h1 id="title">Reviews(<%= listing.reviews.length %>)  Avg:<%= listing.avgRating %></h1>
 
-            <%   if (listing.reviews) { %>
-                <div id="all-reviews">
-                    <% for( review of listing.reviews ) { %>
-                        <div id="review">
+        <%   if (listing.reviews) { %>
+            <div id="all-reviews">
+            <% for( review of listing.reviews ) { %>
+                <div id="review">
                             <h5>@ <%= review.author.username %></h5>
                             <h5>Ratings :- %></h5>
                             <p class="starability-result" data-rating=<%=review.ratings%>>
@@ -90,15 +90,13 @@
         <div id="map"></div>
     </div>
 
-   <script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script>
-
-
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 
     <script>
     let mapToken ="<%= process.env.MAP_TOKEN %> ";
-    let coordinates = <%- JSON.stringify(listing.geometry.coordinates)  %>;
+    let coordinates = "<%- JSON.stringify(listing.geometry.coordinates)  %>";
     </script>
 
     <script src="/map.js"></script>

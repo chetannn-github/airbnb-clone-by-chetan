@@ -8,22 +8,23 @@
     <link rel="stylesheet" href="/header.css">
     <link rel="stylesheet" href="/listings.css">
     
-
-    <!-- <link rel="stylesheet" href="listings.css">  yhh h glt hhhh !!! -->
+<!-- <link rel="stylesheet" href="listings.css">  yhh h glt hhhh !!! kuch middleware m "/" se end nhii kiya hhh -->
     <title>Airbnb</title>
 </head>
 <body>
-    <%- include("includes/header.ejs") %>
+    <%- include("./includes/header.ejs") %>
+    <%- include("./includes/flash.ejs") %>
     
-    <%- include("includes/flash.ejs") %>
-
+  
 
     <div id="listings">
       
     <% for (let list of allListings) { %> 
         <div id="listing">
             <a href="/listings/<%=list._id %>">
-                <div id="img-container"><img src="<%=list.image.url%>" alt=""></div>
+                <div id="img-container">
+                    <img src="<%=list.image.url%>" alt="">
+                </div>
                 <h3><%=list.title%></h3>
             </a>
     

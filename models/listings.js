@@ -18,9 +18,9 @@ const listingSchema = new Schema({
             type:String,
             enum:['Point'],
             required:true,},
-        coordinates:{
-            type:[Number],
-            required:true}
+            coordinates:{
+                type:[Number],
+                required:true}
     },
     reviews:[
         {

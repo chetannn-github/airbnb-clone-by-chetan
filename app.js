@@ -5,18 +5,19 @@ if(process.env.NODE_ENV != 'production'){
 const express = require("express");
 const app = express();
 const port = 8080;
-const methodOverride = require("method-override");
-const path = require("path");
 const mongoose= require("mongoose");
 
+const methodOverride = require("method-override");
+const path = require("path");
+
 const session = require("express-session");
-const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
+const MongoStore = require("connect-mongo");
 
 const ExpressError = require("./utils/ExpressErrorClass");
 const listings = require("./routes/listings");
 const reviews = require("./routes/reviews");
-const user = require("./routes/user.js")
+const user = require("./routes/user.js");
 
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
@@ -73,11 +74,9 @@ const { index } = require("./controllers/listing.js");
 app.use((req,res,next) =>{ 
     res.locals.success= req.flash("success");
     res.locals.error= req.flash("error");
-    
     res.locals.currUser = req.user;
     next();
 })
-
 
 main().then(() => {
     console.log(`connected to db!!!`);
@@ -97,19 +96,16 @@ app.use("/listings",listings);
 app.use("/listings/:id/reviews",reviews);
 app.use("/",user)
 
-
-
- 
-
 app.all("*",(req,res,next)=>{
-    throw new ExpressError(404,"Page not found!!");
+    throw new ExpressError(404,"Page not found!!"); 
+    // kuki yhh async error nhii toh express bydefault next(err) ko call krrr degaaa
     // next(new ExpressError(404,"Page not found!!"));
 });
 
 
 app.use((err,req,res,next)=>{
    let{statusCode=500,message="something went wrong"}= err;
-//    console.log(err.message);
+   console.log(err.message);
    res.status(statusCode).render("error.ejs",{err});
 })
 

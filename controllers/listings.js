@@ -1,5 +1,5 @@
-const Listing = require("../models/listing");
-const Review= require("../models/review.js");
+const Listing = require("../models/listings.js");
+const Review= require("../models/reviews.js");
 
 const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
 const mapToken = process.env.MAP_TOKEN;
@@ -11,12 +11,11 @@ module.exports.index = async(req,res) => {
     res.render("home.ejs" , {allListings} );
 };
 
-
 module.exports.renderNewForm  = (req,res) => {  
     res.render("new.ejs");
 };
 
-module.exports.destroy = async (req,res) =>{
+module.exports.destroy = async (req,res) =>{ 
     let {id} = req.params;
     let listing = await Listing.findByIdAndDelete(id);
 
@@ -31,12 +30,7 @@ module.exports.destroy = async (req,res) =>{
 
 module.exports.showListing = async(req,res) => {
     let {id} = req.params;
-    let listing = await Listing.findById(id).populate({path:"reviews",
-        populate:{
-            path:"author"
-        }    
-    })
-    .populate("owner");
+    let listing = await Listing.findById(id).populate({path:"reviews",populate:{path:"author"} }).populate("owner");
     // console.log(listing);
     let calcAvgRating = () =>{
         let {reviews} = listing;
@@ -86,8 +80,6 @@ module.exports.addNewListing = async(req,res,next) => {
     // }
     // console.log(req.body.listing);
 
-
-
     let response = await geocodingClient.forwardGeocode({
         query: `${req.body.listing.country}`,
         limit: 1,
@@ -112,8 +104,6 @@ module.exports.addNewListing = async(req,res,next) => {
 module.exports.editListing = async(req,res) =>{
     let {id} = req.params;
     // console.log(req.body.listing);
-    
-
     let result = await Listing.findByIdAndUpdate(id,req.body.listing);
     
     if(req.file){
@@ -122,9 +112,8 @@ module.exports.editListing = async(req,res) =>{
         result.image.filename = filename;
         result.save();
     }
-    
 
     req.flash("success","Listing Edited Successfully!!");
-//    console.log(result);
-   res.redirect(`/listings/${id}`);
+    //console.log(result);
+    res.redirect(`/listings/${id}`);
 }

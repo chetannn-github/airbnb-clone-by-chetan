@@ -16,4 +16,4 @@ const validateReview =wrapAsync(async(req,res,next)=>{
     next();
 });
 
-module.exports = {validateListing,validateReview};
+module.exports = {validateListing,validateReview};  
